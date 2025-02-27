@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spreadsheet App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Spreadsheet Application</h1>
+
+        <!-- Spreadsheet Controls -->
+        <div class="controls">
+            <button onclick="saveToExcel()">💾 Save</button>
+            <button onclick="addRow()">➕ Add Row</button>
+            <button onclick="addColumn()">➕ Add Column</button>
+            <button onclick="deleteRow()">❌ Delete Row</button>
+            <button onclick="deleteColumn()">❌ Delete Column</button>
+            <button onclick="applyFormatting('BOLD')">Bold</button>
+            <button onclick="applyFormatting('ITALIC')">Italic</button>
+            <button onclick="applyFormatting('COLOR')">Color</button>
+        </div>
+
+        <!-- Formatting & Calculations -->
+        <div class="format-calc-controls">
+             
+            <button onclick="calculate('SUM')">Sum</button>
+            <button onclick="calculate('COUNT')">Count</button>
+            <button onclick="calculate('AVERAGE')">Average</button>
+            <button onclick="calculate('MEAN')">Mean</button>
+            <button onclick="calculate('MEDIAN')">Median</button>
+            <button onclick="calculate('MODE')">Mode</button>
+            <button onclick="calculate('MAX')">Max</button>
+            <button onclick="calculate('MIN')">Min</button>
+            <button onclick="applyDataQuality('TRIM')">Trim</button>
+            <button onclick="applyDataQuality('UPPER')">Upper</button>
+            <button onclick="applyDataQuality('LOWER')">Lower</button>
+            <button onclick="removeDuplicates()">Remove Duplicates</button>
+        </div>
+
+        <!-- Find & Replace -->
+        <div class="search-replace">
+            <input type="text" id="find-text" placeholder="Find text">
+            <input type="text" id="replace-text" placeholder="Replace with">
+            <button onclick="findAndReplace()">🔍 Find & Replace</button>
+        </div>
+
+        <!-- Color Picker -->
+        <input type="color" id="color-picker" style="display: none;" onchange="setColor(this.value)">
+
+        <!-- Spreadsheet Table -->
+        <div class="spreadsheet">
+            <table id="sheet">
+                <thead>
+                    <tr id="header-row">
+                        <th></th> <!-- Empty corner cell -->
+                    </tr>
+                </thead>
+                <tbody id="sheet-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
